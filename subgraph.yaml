@@ -1,0 +1,30 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: PythPriceUpdater
+    network: tomo
+    source:
+      address: "0xEf97Bf0adB797C461955B03339B2f61bA0C5e159"
+      abi: PythPriceUpdater
+      startBlock: 73258018
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NewPriceFeed
+        - PriceUpdate
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
+      abis:
+        - name: PythPriceUpdater
+          file: ./abis/PythPriceUpdater.json
+      eventHandlers:
+        - event: NewPriceFeed(address,bytes32,address)
+          handler: handleNewPriceFeed
+        - event: PriceUpdate(address,int256,address)
+          handler: handlePriceUpdate
+      file: ./src/mapping.ts

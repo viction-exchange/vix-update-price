@@ -1,0 +1,19 @@
+type NewPriceFeed @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  priceId: Bytes! # bytes32
+  priceFeed: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PriceUpdate @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  price: BigInt! # int256
+  priceFeed: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

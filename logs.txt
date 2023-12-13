@@ -1,0 +1,3 @@
+Receipt for tx 0xe9d9db75fd5f3a9aa41052c6903ad599d9fd2856704ac17d4e56f17fde71b82a unavailable, block was likely uncled (block hash = 0x2ab0ee484eaa02a363300a9e8522efd4f885786ecdb3f488fc538e9748c65035), provider: tomo-rpc-0, component: EthereumPollingBlockIngestor
+docker-graph-node-1  | Dec 13 11:30:08.442 INFO Syncing 2 blocks from Ethereum, code: BlockIngestionStatus, blocks_needed: 2, blocks_behind: 2, latest_block_head: 73474471, current_block_head: 73474469, provider: tomo-rpc-0, component: EthereumPollingBlockIngestor
+
