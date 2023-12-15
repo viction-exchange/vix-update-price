@@ -3,11 +3,11 @@ services:
   graph-node:
     image: graphprotocol/graph-node
     ports:
-      - '9000:8000'
-      - '9001:8001'
-      - '9020:8020'
-      - '9030:8030'
-      - '9040:8040'
+      - '8000:8000'
+      - '8001:8001'
+      - '8020:8020'
+      - '8030:8030'
+      - '8040:8040'
     depends_on:
       - ipfs
       - postgres
@@ -17,12 +17,14 @@ services:
       postgres_host: postgres
       postgres_user: graph-node
       postgres_pass: let-me-in
-      postgres_db: graph_node_db
+      postgres_db: graph_node_db_v01
       ipfs: 'ipfs:5001'
-      ethereum: 'tomo:https://rpc.viction.xyz'
-      GRAPH_LOG: info
-      ETHEREUM_REORG_THRESHOLD: 1
-      ETHEREUM_ANCESTOR_COUNT: 1
+      ethereum: 'tomo:https://viction.blockpi.network/v1/rpc/9d526a66137d44350336d2bb5f1803e4257a998a'
+      GRAPH_LOG: debug
+      GRAPH_ETHEREUM_MAX_BLOCK_RANGE_SIZE: 3000
+      ETHEREUM_REORG_THRESHOLD: 200
+      ETHEREUM_ANCESTOR_COUNT: 5
+      ETHEREUM_BLOCK_BATCH_SIZE: 200
   ipfs:
     image: ipfs/kubo:v0.14.0
     ports:
@@ -42,7 +44,7 @@ services:
     environment:
       POSTGRES_USER: graph-node
       POSTGRES_PASSWORD: let-me-in
-      POSTGRES_DB: graph_node_db
+      POSTGRES_DB: graph_node_db_v01
       # FIXME: remove this env. var. which we shouldn't need. Introduced by
       # <https://github.com/graphprotocol/graph-node/pull/3511>, maybe as a
       # workaround for https://github.com/docker/for-mac/issues/6270?

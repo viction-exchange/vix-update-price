@@ -15,9 +15,9 @@ export function handleNewPriceFeed(event: NewPriceFeedEvent): void {
   entity.priceId = event.params.priceId
   entity.priceFeed = event.params.priceFeed
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  // entity.blockNumber = event.block.number
+  // entity.blockTimestamp = event.block.timestamp
+  // entity.transactionHash = event.transaction.hash
 
   entity.save()
 }
@@ -30,9 +30,9 @@ export function handlePriceUpdate(event: PriceUpdateEvent): void {
   entity.price = event.params.price
   entity.priceFeed = event.params.priceFeed
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  // entity.blockNumber = event.block.number
+  // entity.blockTimestamp = event.block.timestamp
+  // entity.transactionHash = event.transaction.hash
 
   entity.save()
 }
